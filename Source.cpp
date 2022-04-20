@@ -80,6 +80,8 @@ void vectorClass<T>::print()
 	cout << endl;
 }
 
+//Class Course
+
 Course::Course()
 {
 	name = "";
@@ -115,6 +117,8 @@ string Course::GetName()
 {
 	return name;
 }
+
+//Class Student
 
 Student::Student()
 {
@@ -164,6 +168,8 @@ void Student::DanhSachKHDK()
 {
 	schedule.Xuat();
 }
+
+//Class Registrar
 
 Registrar::Registrar()
 {
@@ -233,6 +239,7 @@ void Registrar::Register()
 	cout << "Nhap id sinh vien: ";
 	cin >> id;
 	Student student = st.get(id);
+	cout << "\nDa chon sinh vien ten [" << student.GetName() << "]:\n\n";
 	while (true)
 	{
 		cout << "Nhap id khoa hoc: ";
