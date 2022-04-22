@@ -234,34 +234,42 @@ void Registrar::PrintCourses()
 
 void Registrar::Register()
 {
-	int flag = 1;
+	int flag1 = 1;
+	int flag2 = 1;
 	int id = -1;
-	cout << "Nhap id sinh vien: ";
-	cin >> id;
-	Student student = st.get(id);
-	cout << "\nDa chon sinh vien ten [" << student.GetName() << "]:\n\n";
-	while (true)
+	while (flag2)
 	{
-		cout << "Nhap id khoa hoc: ";
+		cout << "Nhap id sinh vien: ";
 		cin >> id;
-		Course course = co.get(id);
-		if (!student.ThemKH(course.GetName()) || !course.ThemSV(student.GetName()))
+		Student student = st.get(id);
+		cout << "\nDa chon sinh vien ten [" << student.GetName() << "]:\n\n";
+		while (true)
 		{
-			cout << "Khong the dang ki\n";
-		}
-		else
-		{
-			cout << "Dang ki thanh cong\n";
-		}
-		
-		cout << "0. Thoat, 1. Tiep tuc: ";
-		cin >> flag;
-		if (flag == 0)
-		{
-			break;
-		}
-	}
+			cout << "Nhap id khoa hoc: ";
+			cin >> id;
+			Course course = co.get(id);
+			if (!student.ThemKH(course.GetName()) || !course.ThemSV(student.GetName()))
+			{
+				cout << "*Khong the dang ki*\n";
+			}
+			else
+			{
+				cout << "*Dang ki thanh cong*\n";
+			}
 
-	cout << "\nDanh sach cac mon da dang ky cua sinh vien [" << student.GetName() << "]: \n";
-	student.DanhSachKHDK();
+			cout << "0. Thoat, 1. Tiep tuc: ";
+			cin >> flag1;
+			if (flag1 == 0)
+			{
+				break;
+			}
+		}
+		cout << "\nDanh sach cac mon da dang ky cua sinh vien [" << student.GetName() << "]: \n";
+		student.DanhSachKHDK();
+
+		cout << "\nNhan 0 de thoat: ";
+		cin >> flag2;
+	}
+	
+	cout << "\nKet thuc dang ki";
 }

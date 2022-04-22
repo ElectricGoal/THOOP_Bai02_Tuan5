@@ -84,7 +84,7 @@ public:
 	string GetName();
 };
 
-class Registrar:public Student, public Course
+class Registrar//:public Student, public Course
 {
 private:
 	vectorClass<Student> st;
