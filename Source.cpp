@@ -235,12 +235,15 @@ void Registrar::PrintCourses()
 void Registrar::Register()
 {
 	int flag1 = 1;
-	int flag2 = 1;
 	int id = -1;
-	while (flag2)
+	while (true)
 	{
-		cout << "Nhap id sinh vien: ";
+		cout << "\nNhap id sinh vien (Nhan -1 de ket thuc viec dang ki khoa hoc): ";
 		cin >> id;
+		if (id == -1)
+		{
+			break;
+		}
 		Student student = st.get(id);
 		cout << "\nDa chon sinh vien ten [" << student.GetName() << "]:\n\n";
 		while (true)
@@ -266,9 +269,6 @@ void Registrar::Register()
 		}
 		cout << "\nDanh sach cac mon da dang ky cua sinh vien [" << student.GetName() << "]: \n";
 		student.DanhSachKHDK();
-
-		cout << "\nNhan 0 de thoat: ";
-		cin >> flag2;
 	}
 	
 	cout << "\nKet thuc dang ki";
